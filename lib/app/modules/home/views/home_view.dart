@@ -1,5 +1,5 @@
 import 'package:attendance_app/app/modules/home/dashboard/views/dashboard_view.dart';
-import 'package:attendance_app/app/routes/app_pages.dart';
+import 'package:attendance_app/app/modules/home/profile/views/profile_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -33,6 +33,8 @@ class HomeView extends GetView<HomeController> {
               switch (controller.currentIndex.value) {
                 case 0:
                   return DashboardView();
+                case 1:
+                  return ProfileView();
                 default:
                   return DashboardView();
               }
