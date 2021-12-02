@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../controllers/sign_in_page_controller.dart';
+import '../controllers/sign_up_page_controller.dart';
 
-class SignInPageView extends GetView<SignInPageController> {
-  const SignInPageView({Key? key}) : super(key: key);
+class SignUpPageView extends GetView<SignUpPageController> {
+  const SignUpPageView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class SignInPageView extends GetView<SignInPageController> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             const Text(
-              'Login',
+              'Register',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 32,
@@ -68,6 +68,31 @@ class SignInPageView extends GetView<SignInPageController> {
                       );
                     },
                   ),
+                  Obx(
+                    () {
+                      return SizedBox(
+                        height: 75,
+                        child: TextFormField(
+                          obscureText:
+                              !controller.isConfirmPasswordVisible.value,
+                          keyboardType: TextInputType.visiblePassword,
+                          decoration: InputDecoration(
+                            isDense: true,
+                            border: const OutlineInputBorder(),
+                            labelText: 'Confirm Password',
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                  controller.isConfirmPasswordVisible.value
+                                      ? Icons.lock_open_rounded
+                                      : Icons.lock_outline_rounded),
+                              onPressed:
+                                  controller.changeConfirmPasswordVisibility,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                   Row(
                     children: [
                       Obx(() {
@@ -88,14 +113,6 @@ class SignInPageView extends GetView<SignInPageController> {
                         'Remember me',
                         style: TextStyle(color: Colors.black87),
                       ),
-                      const Spacer(),
-                      InkWell(
-                        onTap: () {},
-                        child: const Text(
-                          'Forgot password?',
-                          style: TextStyle(color: Colors.black87),
-                        ),
-                      ),
                     ],
                   ),
                 ],
@@ -107,7 +124,7 @@ class SignInPageView extends GetView<SignInPageController> {
                   width: double.infinity,
                   height: 40,
                   child: ElevatedButton(
-                    child: const Text('Login'),
+                    child: const Text('Register'),
                     onPressed: () {},
                   ),
                 ),
@@ -115,12 +132,12 @@ class SignInPageView extends GetView<SignInPageController> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('Not registered?'),
+                    const Text('Already have an account?'),
                     const SizedBox(width: 5),
                     InkWell(
-                      onTap: () => Get.offAndToNamed(Routes.SIGN_UP_PAGE),
+                      onTap: () => Get.offAndToNamed(Routes.SIGN_IN_PAGE),
                       child: const Text(
-                        'Create account',
+                        'Login',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ),
