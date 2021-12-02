@@ -2,19 +2,26 @@ import 'package:get/get.dart';
 
 import 'package:attendance_app/app/modules/home/bindings/home_binding.dart';
 import 'package:attendance_app/app/modules/home/views/home_view.dart';
+import 'package:attendance_app/app/modules/sign_in_page/bindings/sign_in_page_binding.dart';
+import 'package:attendance_app/app/modules/sign_in_page/views/sign_in_page_view.dart';
 
 part 'app_routes.dart';
 
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.HOME;
+  static const INITIAL = Routes.SIGN_IN_PAGE;
 
   static final routes = [
     GetPage(
       name: _Paths.HOME,
       page: () => HomeView(),
       binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.SIGN_IN_PAGE,
+      page: () => SignInPageView(),
+      binding: SignInPageBinding(),
     ),
   ];
 }
