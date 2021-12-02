@@ -108,7 +108,7 @@ class SignInPageView extends GetView<SignInPageController> {
                   height: 40,
                   child: ElevatedButton(
                     child: const Text('Login'),
-                    onPressed: () {},
+                    onPressed: () => Get.offAndToNamed(Routes.HOME),
                   ),
                 ),
                 const SizedBox(height: 35),
