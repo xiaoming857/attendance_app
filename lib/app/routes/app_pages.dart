@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import 'package:attendance_app/app/modules/devices_page/bindings/devices_page_binding.dart';
+import 'package:attendance_app/app/modules/devices_page/views/devices_page_view.dart';
 import 'package:attendance_app/app/modules/home/bindings/home_binding.dart';
 import 'package:attendance_app/app/modules/home/dashboard/bindings/dashboard_binding.dart';
 import 'package:attendance_app/app/modules/home/dashboard/views/dashboard_view.dart';
@@ -45,6 +47,11 @@ class AppPages {
       name: _Paths.SIGN_UP_PAGE,
       page: () => SignUpPageView(),
       binding: SignUpPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.DEVICES_PAGE,
+      page: () => DevicesPageView(),
+      binding: DevicesPageBinding(),
     ),
   ];
 }
