@@ -8,6 +8,10 @@ import 'package:attendance_app/app/modules/home/dashboard/views/dashboard_view.d
 import 'package:attendance_app/app/modules/home/profile/bindings/profile_binding.dart';
 import 'package:attendance_app/app/modules/home/profile/views/profile_view.dart';
 import 'package:attendance_app/app/modules/home/views/home_view.dart';
+import 'package:attendance_app/app/modules/members/bindings/members_binding.dart';
+import 'package:attendance_app/app/modules/members/views/members_view.dart';
+import 'package:attendance_app/app/modules/report/bindings/report_binding.dart';
+import 'package:attendance_app/app/modules/report/views/report_view.dart';
 import 'package:attendance_app/app/modules/sign_in_page/bindings/sign_in_page_binding.dart';
 import 'package:attendance_app/app/modules/sign_in_page/views/sign_in_page_view.dart';
 import 'package:attendance_app/app/modules/sign_up_page/bindings/sign_up_page_binding.dart';
@@ -52,6 +56,16 @@ class AppPages {
       name: _Paths.DEVICES,
       page: () => DevicesView(),
       binding: DevicesBinding(),
+    ),
+    GetPage(
+      name: _Paths.MEMBERS,
+      page: () => MembersView(),
+      binding: MembersBinding(),
+    ),
+    GetPage(
+      name: _Paths.REPORT,
+      page: () => ReportView(),
+      binding: ReportBinding(),
     ),
   ];
 }

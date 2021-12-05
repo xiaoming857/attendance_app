@@ -1,6 +1,8 @@
 import 'package:attendance_app/app/modules/devices_page/views/devices_view.dart';
 import 'package:attendance_app/app/modules/home/dashboard/views/dashboard_view.dart';
 import 'package:attendance_app/app/modules/home/profile/views/profile_view.dart';
+import 'package:attendance_app/app/modules/members/views/members_view.dart';
+import 'package:attendance_app/app/modules/report/views/report_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -28,11 +30,43 @@ class HomeView extends GetView<HomeController> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Expanded(
-                  child: TextButton(child: const Icon(Icons.dashboard_outlined), onPressed: () => controller.onChangePage(0)),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Expanded(
+                        child: TextButton(
+                          child: const Icon(Icons.dashboard_outlined),
+                          onPressed: () => controller.onChangePage(1),
+                        ),
+                      ),
+                      Expanded(
+                        child: TextButton(
+                          child: const Icon(Icons.people_outline_rounded),
+                          onPressed: () => controller.onChangePage(2),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(width: 50),
                 Expanded(
-                  child: TextButton(child: const Icon(Icons.person_outline_rounded), onPressed: () => controller.onChangePage(1)),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Expanded(
+                        child: TextButton(
+                          child: const Icon(Icons.article_outlined),
+                          onPressed: () => controller.onChangePage(3),
+                        ),
+                      ),
+                      Expanded(
+                        child: TextButton(
+                          child: const Icon(Icons.person_outline_rounded),
+                          onPressed: () => controller.onChangePage(4),
+                        ),
+                      ),
+                    ],
+                  ),
                 )
               ],
             ),
@@ -43,7 +77,7 @@ class HomeView extends GetView<HomeController> {
         dimension: 55,
         child: FloatingActionButton(
           child: const Icon(Icons.devices),
-          onPressed: () => controller.onChangePage(2),
+          onPressed: () => controller.onChangePage(0),
           elevation: 3,
         ),
       ),
@@ -51,11 +85,15 @@ class HomeView extends GetView<HomeController> {
         () {
           switch (controller.currentIndex.value) {
             case 0:
-              return DashboardView();
-            case 1:
-              return ProfileView();
-            case 2:
               return DevicesView();
+            case 1:
+              return DashboardView();
+            case 2:
+              return MembersView();
+            case 3:
+              return ReportView();
+            case 4:
+              return ProfileView();
             default:
               return DashboardView();
           }
