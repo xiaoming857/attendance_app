@@ -1,3 +1,4 @@
+import 'package:attendance_app/app/modules/devices_page/views/devices_page_view.dart';
 import 'package:attendance_app/app/modules/home/dashboard/views/dashboard_view.dart';
 import 'package:attendance_app/app/modules/home/profile/views/profile_view.dart';
 import 'package:flutter/material.dart';
@@ -27,15 +28,11 @@ class HomeView extends GetView<HomeController> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Expanded(
-                  child: TextButton(
-                      child: const Icon(Icons.dashboard_outlined),
-                      onPressed: () => controller.onChangePage(0)),
+                  child: TextButton(child: const Icon(Icons.dashboard_outlined), onPressed: () => controller.onChangePage(0)),
                 ),
                 const SizedBox(width: 50),
                 Expanded(
-                  child: TextButton(
-                      child: const Icon(Icons.person_outline_rounded),
-                      onPressed: () => controller.onChangePage(1)),
+                  child: TextButton(child: const Icon(Icons.person_outline_rounded), onPressed: () => controller.onChangePage(1)),
                 )
               ],
             ),
@@ -46,7 +43,7 @@ class HomeView extends GetView<HomeController> {
         dimension: 55,
         child: FloatingActionButton(
           child: const Icon(Icons.devices),
-          onPressed: () {},
+          onPressed: () => controller.onChangePage(2),
           elevation: 3,
         ),
       ),
@@ -57,6 +54,8 @@ class HomeView extends GetView<HomeController> {
               return DashboardView();
             case 1:
               return ProfileView();
+            case 2:
+              return DevicesPageView();
             default:
               return DashboardView();
           }

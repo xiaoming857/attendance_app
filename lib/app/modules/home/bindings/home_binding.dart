@@ -1,3 +1,4 @@
+import 'package:attendance_app/app/modules/devices_page/controllers/devices_page_controller.dart';
 import 'package:attendance_app/app/modules/home/profile/controllers/profile_controller.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +13,10 @@ class HomeBinding extends Bindings {
 
     Get.lazyPut<ProfileController>(
       () => ProfileController(),
+    );
+
+    Get.lazyPut<DevicesPageController>(
+      () => DevicesPageController(),
     );
   }
 }
