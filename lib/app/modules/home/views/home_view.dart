@@ -1,4 +1,4 @@
-import 'package:attendance_app/app/modules/devices_page/views/devices_page_view.dart';
+import 'package:attendance_app/app/modules/devices_page/views/devices_view.dart';
 import 'package:attendance_app/app/modules/home/dashboard/views/dashboard_view.dart';
 import 'package:attendance_app/app/modules/home/profile/views/profile_view.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +55,7 @@ class HomeView extends GetView<HomeController> {
             case 1:
               return ProfileView();
             case 2:
-              return DevicesPageView();
+              return DevicesView();
             default:
               return DashboardView();
           }
